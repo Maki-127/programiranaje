@@ -13,7 +13,14 @@ def ucitaj_tekst(filepath):
 def ocisti_tekst(tekst):
     # Kod za rpočišćavanje teksta ide ovjde
     tekst = tekst.lower()
-    return tekst
+    interpunkcija = ['.', ',', '!', '?', ':', ';', '"', "'",'(', ')' ]
+    for znak in interpunkcija:
+        tekst = tekst.replace(znak, '')
+
+    lista_rijeci = tekst.split()
+
+    return lista_rijeci
+
 
 
 if __name__ == "__main__":
@@ -25,7 +32,9 @@ if __name__ == "__main__":
         print(ucitani_tekst)
     else:
         print("Greška pri učitavanju datoteke.")
+
     ucitani_tekst = ocisti_tekst(ucitani_tekst)
+
     if ucitani_tekst:
         print("Očišćeni tekst je:")
         print(ucitani_tekst)
